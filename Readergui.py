@@ -1,12 +1,18 @@
 import random
-import openai
 import os
 import tkinter as tk
 from tkinter import messagebox
+import openai
+
+# Set the openai.api_key to the value of the OPENAI_API_KEY environment variable
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 class TarotCard:
     def __init__(self, name):
         self.name = name
+
+# Install the openai module
+os.system('pip install openai')
 
 class TarotDeck:
     def __init__(self):
@@ -109,7 +115,6 @@ def gui_main():
     root.mainloop()
 
 if __name__ == "__main__":
-    openai.api_key = "yourKEY"
     if not openai.api_key:
         print("Error: API key not found. Please set the OPENAI_API_KEY environment variable.")
         input("Press Enter to exit...")
